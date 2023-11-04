@@ -358,6 +358,64 @@
         object category in a scene</i>) and <b>Object Displacement</b> (<i>bringing a source object to a destination
         object using a robotic arm</i>) across 5 benchmarks (ProcTHOR, ArchitecTHOR, RoboTHOR, AI2-iTHOR, and ManipulaTHOR).
       </p>
+      <title>Research Data Table</title>
+      <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        table, th, td {
+          border: 1px solid black;
+        }
+        th, td {
+          padding: 8px;
+          text-align: left;
+        }
+        th {
+          background-color: #f2f2f2;
+        }
+      </style>
+      </head>
+      <body>
+      
+      <table>
+        <tr>
+          <th>Benchmark</th>
+          <th>Model</th>
+          <th>SR(%)</th>
+          <th>EL</th>
+          <th>Curvature</th>
+          <th>SPL</th>
+          <th>SEL</th>
+        </tr>
+        <tr>
+          <td>ProcTHOR-10k (test)</td>
+          <td>EmbCLIP<br>+Codebook (Ours)</td>
+          <td>73.72</td>
+          <td>136.00</td>
+          <td>0.23</td>
+          <td>48.37</td>
+          <td>43.69</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </table>
+      
+      <!-- Separate section for Object displacement if needed -->
+      <table>
+        <tr>
+          <th></th>
+          <th>PU(%)</th>
+          <th>SR(%)</th>
+        </tr>
+        <tr>
+          <td>ManipulaTHOR</td>
+          <td>m-VOLE<br>+Codebook (Ours)</td>
+          <td>86.00</td>
+          <td>65.10</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </table>
+      
       <br><br>
       <h3 class="title is-4 ">Codebook-Bottlenecked Embedding is Easier to Transfer to New Visual Domains</h3>
       <p>
