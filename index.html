@@ -74,6 +74,10 @@
     }
   </style>
 
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
 
 
 </head>
@@ -358,10 +362,44 @@
         object category in a scene</i>) and <b>Object Displacement</b> (<i>bringing a source object to a destination
         object using a robotic arm</i>) across 5 benchmarks (ProcTHOR, ArchitecTHOR, RoboTHOR, AI2-iTHOR, and ManipulaTHOR).
       </p>
+      <br>
+
+      <p>
+      <b>Introducing New Metrics for Object Navigation.</b>
+        We present <b>Curvature (k)</b> defined as
+
+
+        <div>
+            \[
+            k = \frac{dx \times ddy - dy \times ddx}{(dx^2 + dy^2)^{\frac{3}{2}}}
+            \]
+        </div>
+
+        as a key evaluation metric comparing the smoothness of the trajectories.
+        Smoother trajectories are generally safer and more energy-efficient.
+        <br> <br>
+
+        We further introduce <b>Success Weighted by Episode Length (SEL)</b>,
+
+        <div>
+            \[
+            \frac{1}{N} \sum_{i=1}^N S_i \frac{w_i}{max(w_i, e_i)}
+            \]
+        </div>
+
+        as a substitute for
+        <i>Success Weighted by Path Length (SPL)</i>. SPL is evaluated based on the <i>distance</i> traveled rather than the
+        actual <i>number of steps taken</i> while the efficiency of a path should consider factors like time and energy
+        consumption and therefore take into account actions such as rotations and look-ups/downs.
+        <br> <br>
+
+      </p>
+
       <title>Research Data Table</title>
       <style>
         table {
-          width: 100%;
+          margin: 0 auto;
+          width: 70%;
           border-collapse: collapse;
         }
         table, th, td {
@@ -377,60 +415,62 @@
       </style>
       </head>
       <body>
-      
+
       <table>
         <tr>
-          <th>Benchmark</th>
+          <th>Benchmark (Object Goal Navigation)</th>
           <th>Model</th>
           <th>SR(%) &#9650; </th>
           <th>EL &#9660; </th>
           <th>Curvature &#9660; </th>
-          <th>SPL &#9650; </th>
+<!--          <th>SPL &#9650; </th>-->
           <th>SEL &#9650; </th>
         </tr>
         <tr>
           <td>ProcTHOR-10k (test)</td>
           <td>EmbCLIP<br>+Codebook (Ours)</td>
-          <td>67.70<br>73.72</td>
-          <td>182.00<br>136.00</td>
-          <td>0.58<br>0.23</td>
-          <td>49.00<br>48.37</td>
-          <td>36.00<br>43.69</td>
+          <td>67.70<br><b>73.72</b></td>
+          <td>182.00<br><b>136.00</b></td>
+          <td>0.58<br><b>0.23</b></td>
+<!--          <td>49.00<br>48.37</td>-->
+          <td>36.00<br><b>43.69</b></td>
         </tr>
         <tr>
-          <td>ARCHITECTHOR (0-shot)</td>
+          <td>ArchitecTHOR (0-shot)</td>
           <td>EmbCLIP<br>+Codebook (Ours)</td>
-          <td>55.80<br>58.33</td>
-          <td>222.00<br>174.00</td>
-          <td>0.49<br>0.20</td>
-          <td>38.30<br>35.57</td>
-          <td>20.57<br>28.31</td>
+          <td>55.80<br><b>58.33</b></td>
+          <td>222.00<br><b>174.00</b></td>
+          <td>0.49<br><b>0.20</b></td>
+<!--          <td>38.30<br>35.57</td>-->
+          <td>20.57<br><b>28.31</b></td>
         </tr>
         <tr>
           <td>AI2-THOR (0-shot)</td>
           <td>EmbCLIP<br>+Codebook (Ours)</td>
-          <td>70.00<br>78.40</td>
-          <td>121.00<br>86.00</td>
-          <td>0.29<br>0.16</td>
-          <td>57.10<br>54.39</td>
-          <td>21.45<br>26.76</td>
+          <td>70.00<br><b>78.40</b></td>
+          <td>121.00<br><b>86.00</b></td>
+          <td>0.29<br><b>0.16</b></td>
+<!--          <td> 57.10<br>54.39</td>-->
+          <td>21.45<br> <b>26.76</b></td>
         </tr>
         <tr>
           <td>RoboTHOR (0-shot)</td>
           <td>EmbCLIP<br>+Codebook (Ours)</td>
-          <td>51.32<br>55.00</td>
+          <td>51.32<br><b>55.00</b></td>
           <td>-<br>-</td>
           <td>-<br>-</td>
-          <td>24.24<br>23.65</td>
-          <td>-</td>
+<!--          <td><b>24.24</b><br>23.65</td>-->
+          <td>-<br>-</td>
         </tr>
         <!-- Add more rows as needed -->
       </table>
-      
+
+      <br>
+
       <!-- Separate section for Object displacement if needed -->
       <table>
         <tr>
-          <th></th>
+          <th>Benchmark (Object Displacement)</th>
           <th>Model</th>
           <th>PU(%) &#9650; </th>
           <th>SR(%) &#9650; </th>
@@ -438,12 +478,12 @@
         <tr>
           <td>ManipulaTHOR</td>
           <td>m-VOLE<br>+Codebook (Ours)</td>
-          <td>81.20<br>86.00</td>
-          <td>59.60<br>65.10</td>
+          <td>81.20<br> <b>86.00</b></td>
+          <td>59.60<br> <b>65.10</b></td>
         </tr>
         <!-- Add more rows as needed -->
       </table>
-      
+
       <br><br>
       <h3 class="title is-4 ">Codebook-Bottlenecked Embedding is Easier to Transfer to New Visual Domains</h3>
       <p>
@@ -515,15 +555,13 @@
       <br><br>
       <h3 class="title is-4 ">Our Agent Explores More Effectively and Travels in Smoother Trajectories</h3>
       <p>
-        We present <b>Curvature</b> as a key evaluation metric comparing the smoothness of the trajectories.
-        Smoother trajectories are generally safer and more energy-efficient. Excessive rotations and sudden changes in
-        direction can lead to increased energy consumption and increase the chances of collisions with other objects.
-        We further introduce <b>Success Weighted by Episode Length (SEL)</b> metric as a substitute for
-        <i>Success Weighted by Path Length (SPL)</i>. SPL is evaluated based on the <i>distance</i> traveled rather than the
-        actual <i>number of steps taken</i> while the efficiency of a path should consider factors like time and energy
-        consumption and therefore take into account actions such as rotations and look-ups/downs, which also consume time
-        and energy. Our quantitative and qualitative analysis shows that our agent explores more effectively and travels
-        in much smoother paths. Some examples of the agent trajectories are shown below.
+        We conduct a quantitative and qualitative analysis to compare the agent's behavior. The <b>Curvature</b> and
+        <b>Success Weighted by Episode Length (SEL)</b> metrics show that our agent explores more effectively and travels
+        in much smoother paths. Excessive rotations and sudden changes in direction can lead to increased energy
+        consumption and increase the chances of collisions with other objects. Lower <b>SEL</b> achieved by our agent
+        shows that we can find the target object in much fewer steps. The qualitative examples below show that the
+        baseline agent performs lots of redundant rotations.
+
       </p>
 
 
