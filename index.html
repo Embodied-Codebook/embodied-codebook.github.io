@@ -42,6 +42,19 @@
   <script src="./static/js/index.js"></script>
 
   <style>
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .video-container iframe {
+      margin-bottom: 10px; /* Adjust as needed */
+    }
+  </style>
+
+  <style>
     /* Define a CSS class for your section with a specific background color */
     .colored-section {
       background-color: #F8F8F8; /* Replace with your desired color code or name */
@@ -143,9 +156,20 @@
           button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file"></i></span><span>ArXiv</span></a></span>
 
           <!-- Code Link. -->
-          <span class="link-block"><a target="_blank" href="https://embodied-codebook.github.io/" class="external-link
-          button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code (Coming Soon)</span></a></span>
-<!--          <span class="link-block">-->
+          <span class="link-block"><a target="_blank" href="https://github.com/allenai/procthor-rl" class="external-link
+          button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+
+          <!-- Slides -->
+          
+            <span class="link-block">
+              <a target="_blank" href="media/ICLR _2024_selective_representations.pptx" download class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-powerpoint"></i></span>
+                <span>Slides</span>
+              </a>
+            </span>
+
+
+            <!--          <span class="link-block">-->
 <!--          <a target="_blank" href="" class="external-link button is-normal is-rounded is-dark">-->
 <!--            <span class="icon">-->
 <!--              <i class="fas fa-database" aria-hidden="true"></i>-->
@@ -301,8 +325,15 @@
 
   </div>
 
+  <figure class="video-container">
+    <iframe width="900" height="500" src="https://www.youtube.com/embed/OprgUe7CeDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <figcaption>Introductory video (5min) . English captions are available in the video settings.</figcaption>
+  </figure>
+
 
 </section>
+
+
 
 <section class="section">
   <div class="container is-max-widescreen">
